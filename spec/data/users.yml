@@ -1,0 +1,18 @@
+alice:
+  name: alice
+  birthdate: 2001-01-01
+bob:
+  name: bob
+  birthdate: 2001-01-02
+foo:
+  name: foo
+bar:
+  name: bar
+  birthdate: 2005-01-01
+mary:
+  name: mary
+  birthdate: 2005-01-02
+jane:
+  name: jane
+steve:
+  name: steve

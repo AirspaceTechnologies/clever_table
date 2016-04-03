@@ -16,6 +16,5 @@ describe UsersController do
   it 'can show users' do
     visit users_path
     expect(page).to have_content('bob')
-    1
   end
 end

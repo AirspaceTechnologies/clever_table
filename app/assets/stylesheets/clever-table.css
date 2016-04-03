@@ -1,0 +1,42 @@
+table.clever-table th.sorted {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+    display:            table-cell;
+}
+
+table.clever-table th.constrained {
+    background-color: lightblue;
+}
+
+table.clever-table th[data-col] {
+    cursor: n-resize;
+}
+
+table.clever-table th[data-col].glyphicon-arrow-up {
+    cursor: s-resize;
+}
+
+table.clever-table thead.querying th {
+    cursor: pointer;
+}
+
+table.clever-table thead.querying th[data-col] {
+    cursor: pointer;
+}
+
+div#clever-table-query {
+    background-color: lightblue;
+}
+
+div#query-content {
+    display: none;
+}
+
+span.constraint {
+    background-color: hsl(195, 26%, 79%);
+    border: 1px solid;
+}
+.pointer {
+    cursor: pointer
+}
