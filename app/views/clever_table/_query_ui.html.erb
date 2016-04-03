@@ -1,0 +1,16 @@
+<div id="clever-table-query">
+  <div class="query-summary">  <button class="glyphicon glyphicon-search btn btn-default btn-xs" id="query-button"></button>
+  <%= render partial: 'clever_table/constraint_buttons', locals: {source: source} %>
+  </div>
+  <div id="query-content">
+    <p>Click a column header to set its constraints</p>
+  </div>
+</div>
+<div class="hidden" id="query-templates">
+  <%= render partial: 'clever_table/numeric_query' %>
+  <%= render partial: 'clever_table/date_query' %>
+  <%= render partial: 'clever_table/list_query' %>
+  <%= render partial: 'clever_table/string_query' %>
+  <%= render partial: 'clever_table/date_between' %>
+  <%= render partial: 'clever_table/numeric_between' %>
+</div>

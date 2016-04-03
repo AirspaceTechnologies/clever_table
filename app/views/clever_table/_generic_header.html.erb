@@ -1,0 +1,32 @@
+<table class="clever-table table table-striped table-hover table-condensed table-responsive ">
+  <thead>
+  <tr>
+<% source.fields.each do |fld, value|
+  if source.sortable?(fld)
+    cols = source.columns
+    sort_direction = source.get_sort_direction(fld, value)
+    type = source.column_type(value)
+    list_args = (type == 'list' ? source.list_args(value) : '')
+
+    if sort_direction
+      alt = (sort_direction == 'asc') ? 'down' : 'up' %>
+      <%= content_tag(:th,  fld,
+                      'data-col': ((value.is_a? Symbol) ? value.to_s : fld.downcase),
+                      'data-type': type,
+                      'data-list-args': list_args,
+                      class: 'sorted glyphicon glyphicon-arrow-' + alt + ' ' + source.constrained_class(fld) ) %>
+    <% else %>
+      <%= content_tag(:th,  fld,
+                      'data-col': ((value.is_a? Symbol) ? value.to_s : fld.downcase),
+                      'data-list-args': list_args,
+                      'data-type': type,
+                      class:  source.constrained_class(fld))
+      %>
+    <% end
+    else #sortable? %>
+      <%= content_tag(:th, fld, class: source.constrained_class(fld) ) %>
+<%  end
+   end %>
+ </tr>
+  </thead>
+  <tbody>

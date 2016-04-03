@@ -1,0 +1,4 @@
+<% source.with_constraints do |name, operator, op_name, value| %>
+  <span class="constraint"><%= name %> <%= op_name %> <%= value %><button class="glyphicon glyphicon-remove btn btn-default btn-xs unconstrain" id="query-button" data-col="<%= name.underscore + '_' + operator %>"></button>
+  </span>
+<% end %>
