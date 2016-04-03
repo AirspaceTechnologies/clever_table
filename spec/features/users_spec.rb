@@ -14,6 +14,8 @@ describe UsersController do
   end
 
   it 'can show users' do
-    get :index
+    visit users_path
+    expect(page).to have_content('bob')
+    1
   end
 end
