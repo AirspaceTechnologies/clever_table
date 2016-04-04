@@ -7,13 +7,10 @@ describe UsersController do
   end
 
   it 'has the test data' do
-    # (0..6).each do |i|
-    #   let ('user' + i.to_s).to_sym { FactoryGirl.create :user, inst: i}
-    # end
     expect(User.count).to equal(7)
   end
 
-  it 'can show users' do
+  it 'can show users', js: true do
     visit users_path
     expect(page).to have_content('bob')
   end

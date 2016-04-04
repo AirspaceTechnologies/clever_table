@@ -16,7 +16,7 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, timeout: 60, inspector: true) # debug: true
 end
 
-Capybara.javascript_driver = :poltergeist_debug
+Capybara.javascript_driver = :poltergeist
 
 # Delayed::Worker.delay_jobs = false
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

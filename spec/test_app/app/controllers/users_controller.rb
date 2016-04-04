@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         'Name'            => :name,
         'Status'          => :birthdate,
 
+        :per_page         => 3,
         :unique           => :id,
         :controller       => self
     )

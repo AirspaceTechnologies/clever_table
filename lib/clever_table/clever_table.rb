@@ -1,16 +1,19 @@
 module CleverTable
   class CleverTable
-    attr_reader :data, :options, :fields, :params, :columns, :count, :pages
+    attr_reader :data, :options, :fields, :params, :columns, :count, :pages, :per_page
 
     PER_PAGE     = 20
     PAGES_BESIDE = 3
 
     def initialize(data, params, fields)
       @fields        = fields
-      @options       = @fields.extract!(:no_sort, :sort_names, :lists, :row_link, :unique, :controller)
+      @options       = @fields.extract!(:no_sort, :sort_names, :lists, :row_link, :unique, :controller, :per_page)
       @params        = params
       @view          = ActionView::Base.new('app/views', {}, @options[:controller])
       @original_data = data
+      @per_page      = @options[:per_page] || PER_PAGE
+
+
       @data          = filter(data)
 
       ActionView::Base.send(:define_method, :protect_against_forgery?) { false }
@@ -168,7 +171,7 @@ module CleverTable
 
       @data  = data
       @count ||= get_count
-      @pages = (@count / PER_PAGE.to_f).ceil
+      @pages = (@count / per_page.to_f).ceil
       @data
     end
 
@@ -183,7 +186,7 @@ module CleverTable
 
     def paginate(data)
       page = page_param
-      return data.limit PER_PAGE if last_page? || first_page?
+      return data.limit per_page if last_page? || first_page?
 
       sfs = sort_fields
 
@@ -212,17 +215,17 @@ module CleverTable
         return just_go_to_page
       end
 
-      where.limit PER_PAGE
+      where.limit per_page
     end
 
     def just_go_to_page
       if params['page']
-        where = data.offset [(params['page'].to_i - 1), 0].max * PER_PAGE
+        where = data.offset [(params['page'].to_i - 1), 0].max * per_page
       else
         where = data
       end
 
-      where.limit PER_PAGE
+      where.limit per_page
     end
 
     def page_param
