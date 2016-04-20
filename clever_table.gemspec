@@ -7,11 +7,11 @@ require "clever_table/version"
 Gem::Specification.new do |s|
   s.name        = "clever_table"
   s.version     = CleverTable::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of CleverTable."
-  s.description = "TODO: Description of CleverTable."
+  s.authors     = ["Guyren Howe"]
+  s.email       = ["guyren@relevantlogic.com"]
+  s.homepage    = "https://github.com/AirspaceTechnologies/clever_table"
+  s.summary     = "A quick and easy way to display a paginated, searchable table of data."
+  s.description = "Your controller grabs some rows. It gives the column header and a few other options. The view just calls render. Hazzah: a sortable, searchable, paginated table."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
