@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "A quick and easy way to display a paginated, searchable table of data."
   s.description = "Your controller grabs some rows. It gives the column header and a few other options. The view just calls render. Hazzah: a sortable, searchable, paginated table."
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency "rails", "~> 4.2"
 
