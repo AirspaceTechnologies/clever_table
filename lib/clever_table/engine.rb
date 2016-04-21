@@ -9,7 +9,7 @@ module CleverTable
 
     initializer 'clever_table.assets.precompile_paths' do |app|
       app.config.assets.precompile += %w{ clever_table.js clever_table.css }
-      app.config.assets.paths << root.join("app", "assets")
+      app.config.assets.paths << root.join("app", "assets", "stylesheets")
     end
   end
 end
