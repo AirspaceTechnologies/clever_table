@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
-    params['sort'] ||= 'id'
-    params['dir'] ||= 'desc'
+    @users = User.all.order 'name asc'
+    params['sort'] ||= 'name'
+    params['dir'] ||= 'asc'
 
     @table  = CleverTable::CleverTable.new(
         @users,

@@ -123,7 +123,7 @@ module CleverTable
     end
 
     def sort_fields
-      ([*sort_field]) + unique_fields
+      (([*sort_field]) + unique_fields).map(&:to_sym).uniq
     end
 
     def sort_values(datum)
@@ -347,9 +347,9 @@ module CleverTable
     end
 
     def sort_field
-      s          = params['sort']
       sort_names = options[:sort_names]
       return sort_names[s] if sort_names
+      s          = params['sort']
       return s
     end
 
