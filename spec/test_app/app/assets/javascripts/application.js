@@ -11,4 +11,4 @@
 // about supported directives.
 //
 //= require_tree .
-//= require clever_table
+//= require clever_table/clever_table

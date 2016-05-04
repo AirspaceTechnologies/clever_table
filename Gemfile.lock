@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clever_table (0.0.1)
+    clever_table (0.0.2)
       rails (~> 4.2)
 
 GEM
