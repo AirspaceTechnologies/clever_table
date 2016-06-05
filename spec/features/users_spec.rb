@@ -22,4 +22,16 @@ describe UsersController do
     expect(all('td')[1]).to have_content('steve')
     expect(all('td')[4]).to have_content('jane')
   end
+
+  it 'can search', js: true do
+    visit users_path
+    find('#query-button').click
+    find('[data-col=name]').click
+    within(:css, '#clever-table-query form.query-string') do
+      fill_in('arg', with:'steve')
+      click_on('Apply')
+    end
+    expect(page).to have_content('steve')
+    expect(page).not_to have_content('alice')
+  end
 end
